@@ -100,3 +100,42 @@ for i in range(4):
     transposed.append([per[i] for per in vec3])
 print(transposed)
 
+a = [1, 2, 3, 4, 5]
+del a[0]
+print(a)
+
+del a[:2]
+print(a)
+
+del a[:]
+print(a)
+
+t = 1, 2, 3, 4
+n = t, (5, 6, 7, 8)
+print(n)
+
+dict1 = dict([(1, 2), (3, 4)])
+print(dict1)
+print(dict1[1])
+
+dict2 = {x: x * x for x in range(4)}
+print(type(dict2), dict2)
+
+for a, b in dict1.items():
+    print(a, b)
+
+print(dict(a=1, b=2, c=3))
+
+for a, b in enumerate([1, 2, 3]):
+    print(a, b)
+
+
+
+for i in range(1, 10, 2):
+    print(i ,end = ' ')
+
+print()
+for i in reversed(range(1, 10, 2)):
+    print(i, end=' ')
+
+
