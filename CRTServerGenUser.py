@@ -53,7 +53,6 @@ def main():
 
     crt.Screen.Synchronous = True
 
-    deleteUser()
     addUser()
 
     crt.Screen.Synchronous = False
