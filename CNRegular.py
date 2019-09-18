@@ -47,4 +47,18 @@ for root,dirs,files in allfiles:
             file.close()
 print('count total = %d' % count)
 
+result = re.match(r'[a-z]','g',0)
+print(result)
+
+result = re.match(r'[^a-z]','g',0)
+print(result)
+
+result = re.match(r'^(?:C|S) [1-9][0-9]{0,1}','C 1',0)
+print(result)
+
+result = re.findall(r'(\w+):\/\/([^\:]+)(:\d*)?([^#]*)','http://www.baidu.com:8080',0)
+print(result)
+
+result = re.findall(r'Windows(?=95|98|2000)','Windows95Windows98Windows2000Windows10',0)
+print(result)
 
