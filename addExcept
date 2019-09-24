@@ -1,0 +1,14 @@
+#!/usr/bin/expect
+
+set port [lindex $argv 0] 
+set password [lindex $argv 1] 
+
+spawn bash /root/ssr.sh
+
+expect {
+        "1-15"                {send "7\r";         exp_continue}
+        "默认quit: 取消"          {send "1\r";         exp_continue}
+        "默认: 2333"          {send "$port\r";     exp_continue}
+        "默认: doub.io"       {send "$password\r"; exp_continue}
+
+}

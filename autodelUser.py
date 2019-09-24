@@ -4,14 +4,11 @@ import os
 import time
 import re
 
-delCommands = ['bash ssr.sh',
-               '7'
-               '2']
 
 def main():
 
     while True:
-        with open('record.txt', 'r', encoding='utf-8') as of,open('record.txt.back', 'w', encoding='utf-8') as nf:
+        with open('/root/ssr_record/record.txt', 'r', encoding='utf-8') as of,open('/root/ssr_record/record.txt.back', 'w', encoding='utf-8') as nf:
                 lines = of.readlines()
                 if lines != None:
                     for line in lines:
@@ -33,18 +30,13 @@ def main():
 
                         if month == monthNow and day == dayNow:
                             #delete port 
-                            for command in delCommands:
-                                os.system(command)
-                                time.sleep(2)
-                            os.system(port)
-                            time.sleep(2)
+                            os.system('./delExcept ' + str(port))
                             print('delete port success!')
                         else:
                             nf.write(line)
 
-        os.system('rm record.txt')
-        os.system('cp record.txt.back record.txt')            
+        os.system('rm /root/ssr_record/record.txt')
+        os.system('cp /root/ssr_record/record.txt.back /root/ssr_record/record.txt')            
         time.sleep(60*60*24)
 
 main()
-
