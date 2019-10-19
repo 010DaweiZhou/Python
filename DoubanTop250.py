@@ -16,12 +16,12 @@ def getmovies():
         soup = BeautifulSoup(result.text , 'lxml')
         div_list = soup.find_all('div', class_='hd')
         for movie_name in div_list:
-            movie = movie_name.a.span.text
+            movie = movie_name.a.span.text.strip()
             movies.append(movie)
     return movies
         
 
-movies = getmovies()
+movies = getmovies()    
 print(movies)
 
 
