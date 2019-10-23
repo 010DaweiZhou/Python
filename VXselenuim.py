@@ -9,7 +9,9 @@ start = 0
 limit = 20
 pages = 0
 
-movie_id = 3097572
+movie_id = 26426056
+fileName = 'ChenShuiMoZhou.txt'
+
 status = 'P'
 
 link1 = 'https://movie.douban.com/subject/' + str(movie_id) + '/comments?'
@@ -27,7 +29,7 @@ if total % limit == 0:
 else:
     pages = total // limit + 1
 
-with open('result.txt', 'w+', encoding='utf-8') as f:
+with open(fileName, 'w+', encoding='utf-8') as f:
     for page in range(0 , pages):
         if page == 0:
             link = link1 + link2
@@ -41,11 +43,13 @@ with open('result.txt', 'w+', encoding='utf-8') as f:
             a = span.find_element_by_tag_name('a')
             span = comment.find_element_by_tag_name('span.short')
             dic[a.text] = span.text
-        time.sleep(5)
+        time.sleep(10)
 
     for key, value in dic.items():
         f.write(key + ' : ' + value + '\n\n')
+        f.flush()
 
     dic.clear()
 
 driver.quit()
+
